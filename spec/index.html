@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The official EDXML specification.">
+    <meta name="author" content="Dik Takken">
+
+    <title>Specification | EDXML</title>
+
+    <link rel="icon" type="image/png" href="../assets/favicon.png" sizes="32x32">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/styles/mono-blue.min.css">
+    <link rel="stylesheet" href="../assets/customizations.css">
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/highlight.min.js"></script>
+    <script charset="UTF-8" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.9/languages/python.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js"></script>
+    <script src="../assets/load-fonts.js"></script>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-2 d-none d-lg-block d-xl-block column-left">
+            <div class="row" style="height: 20ex;">
+                <a href="../" class="mx-auto my-5">
+                    <img src="../assets/logo.png" style="height: 12ex;" alt="logo"/>
+                </a>
+            </div>
+            <div class="row">
+                <img src="../assets/symbol-rain.svg" class="mx-auto" style="width: 80%;" alt="decoration"/>
+            </div>
+        </div>
+        <article class="col-lg-10 bg-white column-center" style="max-width: 60em;">
+            <div class="row mt-5 text-center">
+                <div class="col-lg-1"></div>
+                <div class="col-lg-10">
+                    <h1 class="mx-auto my-auto">The Specification</h1>
+                </div>
+                <div class="col-lg-1"></div>
+            </div>
+            <div class="row my-5" style=""></div>
+            <div class="row">
+                <div class="col-sm-2"></div>
+                <div class="text-center col-sm-8">
+                    <i>The EDXML specification describes how EDXML data is structured, validated and interpreted.</i>
+                </div>
+                <div class="col-sm-2"></div>
+            </div>
+            <div class="row my-5"></div>
+            <div class="row mt-4">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-4">
+                    <div class="row colored-panel green" style="height: 14ex;">
+                        <div class="col mx-auto my-auto text-center" style="width:8em">
+                            <span class="small">Current version:</span><br/>
+                            <span class="extra-large">3.0.0</span><br/>
+                            <p class="small"><a href="edxml-spec-3.0.0.pdf">download</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4"></div>
+            </div>
+            <section id="intro">
+                <div class="row">
+                    <div class="col-sm-1"></div>
+                    <div class="initial col-sm-9">
+                        <h2><a class="label" href="#intro"></a>Introduction</h2>
+                        <p>The EDXML specification describes how EDXML data is generated, interpreted and processed. Some key elements from the specification text are summarized below. It is recommended to read <a href="../intro/">the introduction to EDXML</a> first, in case you have not done so yet.</p>
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+            </section>
+            <section id="xml">
+                <div class="row">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-9">
+                        <h2><a class="label" href="#xml"></a>XML</h2>
+                        <p>EDXML uses an XML based data format which is designed to enable the use of schemas to offload data validation to efficient C libraries. The <a href="../sdk/">EDXML SDK</a> demonstrates this in both its parser and generator.</p>
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+            </section>
+            <section id="events">
+                <div class="row">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-9">
+                        <h2><a class="label" href="#events"></a>Events</h2>
+                        <p>In EDXML all data is represented by means of <i>events</i>. An EDXML event is like a data row in a database table or a spreadsheet. It has a simple, flat structure. An example event is shown below:</p>
+                        <pre><code class="xml">
+&lt;event event-type=&quot;crm.customer.details&quot;
+       source-uri=&quot;/com/acme/crm/&quot;&gt;
+  &lt;properties&gt;
+    &lt;phone&gt;0034656286219&lt;/phone&gt;
+    &lt;email&gt;alice@email.com&lt;/email&gt;
+  &lt;/properties&gt;
+&lt;/event&gt;</code></pre>
+                        <p>The above example shows an event having two properties. Properties can have zero, one or multiple <i>object values</i>. The example shows both properties having one object value.</p>
+                        <p>Each event has an <i>event type</i> and a <i>source URI</i>. The event type defines the structure of the events, which properties it has, what these properties mean, how properties are mutually related, and so on. Event type definitions are part of the <i>ontology</i>, which we will describe later.</p>
+                        <p>The simple event representation suggests that EDXML is only useful for simple data structures. This is not the case though. In EDXML, the true structure of the data is for the most part the result of interpretation of the data according to its meaning. The meaning of the events is encoded in their event type definition. Using the event type definitions in the EDXML ontology, one or more events can be expanded into more advanced data structures like hierarchical structures or graphs.
+                        </p>
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+            </section>
+            <section id="ontologies">
+                <div class="row">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-9">
+                        <h2><a class="label" href="#ontologies"></a>Ontologies</h2>
+                        <p>The structure of an event is determined by its event type. Event types are defined in <a href="../ontology/">EDXML ontologies</a> and describe the exact structure and meaning of all events of a particular type. They describe which properties their events can have, how these properties are related to one another, what the value space of their values is, and which concepts they are associated with. They describe how the time stamps contained in the events must be interpreted, how the ordering of the events is defined and many other things.</p>
+                        <p>The specification does not include any predefined event types. Each EDXML data source can generate its own ontology which contains the definitions of the types of whatever events it wishes to produce. As explained in the <a href="../story-telling/">story telling analogy</a> the ontology is like the introduction of a novel which describes the various characters and their role in the story that the data is telling us.</p>
+                        <p>Ontologies are an integral part of the EDXML document format. In fact, the specification requires that the ontology is never separated from the events that it describes. This guarantees that the meaning of the data flows along with the data itself, the information required to process the data is wherever the data is.</p>
+                        <p>Ontologies describe the meaning of the data. Combined with the events, this yields knowledge. Consider the example event shown above once more. The event type may contain an intra-concept relation between the phone number and e-mail address, which looks like this (abbreviated):</p>
+                        <pre><code class="xml">
+&lt;intra source="phone"
+       target="email"
+       source-concept="person"
+       target-concept="person"/&gt;
+</code></pre>
+                        <p>This relation tells machines that both the phone number and the e-mail address are identifiers of a person and that both are associated with <i>the same</i> person. Computers can use this relation to make the reasoning steps needed to perform <a href="../concept-mining/">concept mining</a>.</p>
+                        <p>The ontologies of multiple data sources can be merged automatically. This means that software components that output EDXML data can be shared and combined. Combining the outputs yields a single consistent body of correlated knowledge. The use of shared <a href="../ontology/#bricks">ontology bricks</a> helps to achieve this in practise.</p>
+                        <p>Event types and other ontology components are versioned. An update can be sent as part of a regular ontology element in an EDXML data stream. This assures that the update is automatically distributed to all system components that consume event data. The specification provides backward compatibility guarantees and describes how ontology updates are processed.</p>
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+            </section>
+            <section id="object-types">
+                <div class="row">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-9">
+                        <h2><a class="label" href="#object-types"></a>Object Types</h2>
+                        <p>Events can be correlated by determining which events have a particular object value in common. This requires matching both the object value and the <i>object type</i>. Each event property defines the type of objects it can contain by specifying its object type. While properties are specific to a single event type, many event types can use the same object type.</p>
+                        <p>The object type of an event property also determines the value space of the object values. For example, an object type defining a date only allows dates as values.</p>
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+            </section>
+            <section id="concepts">
+                <div class="row">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-9">
+                        <h2><a class="label" href="#concepts"></a>Concepts</h2>
+                        <p>As explained in the <a href="../story-telling/">story telling analogy</a>, EDXML concepts are like the characters in the stories told by the events in the data set. Concepts can be persons, places, organizations, or whatever makes sense to describe the data. In EDXML, concepts are basically just names, identifiers, like <code>person.customer</code>.</p>
+                        <p>Which attributes a concept may have (name, address, ...) is <i>not</i> explicitly defined. In stead, event properties can define which concept they are associated with, marking themselves as a concept attribute. The full set of available attributes of a concept is obtained by querying all event types that refer to it. This is how multiple EDXML data sources can join forces to provide a more complete description of a concept, simply by combining their event type definitions and their event data.</p>
+                        <p>Last but not least, concepts are the very thing that makes <a href="../concept-mining/">concept mining</a> possible.</p>
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+            </section>
+            <section id="hashing">
+                <div class="row">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-9">
+                        <h2><a class="label" href="#hashing"></a>Hashing</h2>
+                        <p>Each EDXML event has a unique persistent identifier which can be represented as a <a href="https://en.wikipedia.org/wiki/Hash_function">hash value</a>. These hashes are not explicitly stored in the EDXML data. Rather, they can be computed on demand from the event data. The specification text describes the hash computation method in detail.</p>
+                        <p>The event hashes are called <i>sticky hashes</i> because they remain attached to a given event, even when the event evolves over time. The hashes provide a persistent identifier which can be safely used to refer to any event, static or dynamic. This is achieved by allowing an event type to customize the hash computation. </p>
+                        <p>Event types can describe which combination of event properties constitute a unique event. Only the object values from these properties are included in the hash. This means that a data source can generate multiple <i>physical</i> events that are in fact different instances of the same <i>logical</i> event. As such an EDXML event can be used to track the state of a dynamic data record at the data source.</p>
+                        <p>Events that are instances of the same logical event are said to collide, analogous to a hash collision in cryptography. Colliding events can be merged into one by means of a merging procedure that is also described in the specification. The event type definition can provide directives for merging its events. Various <i>merge strategies</i> are supported, such as taking the largest value, adding the value to the set, and so on. Merge operations are idempotent, which allows for implementing event merges in distributed databases.</p>
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+            </section>
+            <section id="templates">
+                <div class="row">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-9">
+                        <h2><a class="label" href="#templates"></a>Templates</h2>
+                        <p>While the primary goal of EDXML is to make data equally meaningful to both humans and machines, its expressiveness is and will always be limited. Ultimately, the exact meaning of data is best conveyed to humans by means of human language.</p>
+                        <p>EDXML includes a simple template language that enables converting EDXML events into plain English. A short example template is shown below:</p>
+                        <div class="row mb-2">
+                            <div class="col-sm-2"></div>
+                            <div class="col-sm-8">
+                                <code>On [[date-created]] bank account [[account]] was created for [[customer-name]]{, who can be contacted at e-mail address [[customer-email]]}.</code>
+                            </div>
+                            <div class="col-sm-2"></div>
+                        </div>
+                        <p>The double square brackets mark placeholders for property values. The part of the template enclosed in curly brackets is omitted in case <code>customer-email</code> has no value. This feature allows event descriptions to degrade gracefully for events that contain less information. The above template may evaluate into</p>
+                        <div class="row mb-2">
+                            <div class="col-sm-2"></div>
+                            <div class="col-sm-8">
+                                <code>On May 1st 2018 bank account 12345 was created for Alice Johnson, who can be contacted at e-mail address alice@email.com.</code>
+                            </div>
+                            <div class="col-sm-2"></div>
+                        </div>
+                        <p>Machines really can <a href="../story-telling/">tell stories</a>.</p>
+                        <p>The templates are also used to describe relationships between events. This enables machines to do things like explaining their own reasoning that led to a particular <a href="../concept-mining/">concept mining</a> result, quite similar to how a human analyst would.</p>
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+            </section>
+            <div class="row my-5">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-7">
+                    <div class="row text-center font-italic gray small mt-5 mb-2">
+                        <div class="col">other subjects</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 text-center text-md-left">
+                            <a class="small" href="../story-telling/">Story Telling</a>
+                        </div>
+                        <div class="col-md-6 text-center text-md-right">
+                            <a class="small" href="../concept-mining/">Concept Mining</a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 text-center text-md-left">
+                            <a class="small" href="../ontology/">Ontologies</a>
+                        </div>
+                        <div class="col-md-6 text-center text-md-right">
+                            <a class="small" href="../science/">Scientific Background</a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 text-center text-md-left">
+                            <a class="small" href="../foundation/">EDXML Foundation</a>
+                        </div>
+                        <div class="col-md-6 text-center text-md-right">
+                            <a class="small" href="../sdk/">SDK</a>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6 text-center text-md-left">
+                            <a class="small" href="../intro/">Introduction</a>
+                        </div>
+                        <div class="col-md-6 text-center text-md-right">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3"></div>
+            </div>
+            <div class="row my-5 text-center">
+                <div class="col-sm-1"></div>
+                <div class="col-sm-9">
+                    <p class="small">Copyright © <a href="../foundation/">The EDXML Foundation</a></p>
+                </div>
+                <div class="col-sm-2"></div>
+            </div>
+            <div class="row my-5 text-center">
+                <div class="col-sm-1"></div>
+                <div class="col-sm-9">
+                    <div class="row" style="height: 6ex;">
+                        <a class="mx-auto my-auto" href="../"><img src="../assets/home.svg" alt="Go to home page" style="width: 4ex;"/></a>
+                    </div>
+                </div>
+                <div class="col-sm-2"></div>
+            </div>
+        </article>
+        <div class="col-sm-1 d-none d-lg-block d-xl-block"></div>
+    </div>
+</div>
+</body>
+</html>

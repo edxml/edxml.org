@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="About the origins and history of EDXML">
+    <meta name="author" content="Dik Takken">
+
+    <title>Introduction | EDXML</title>
+
+    <link rel="icon" type="image/png" href="../assets/favicon.png" sizes="32x32">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/styles/mono-blue.min.css">
+    <link rel="stylesheet" href="../assets/customizations.css">
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js"></script>
+    <script src="../assets/load-fonts.js"></script>
+    <script
+            src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+            integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+            crossorigin="anonymous">
+    </script>
+    <script src="../assets/termynal.js"></script>
+    <script src="../assets/jquery.appear.js"></script>
+    <script src="../assets/load-termynal.js"></script>
+    <link rel="stylesheet" href="../assets/termynal.css">
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-2 d-none d-lg-block d-xl-block column-left">
+            <div class="row" style="height: 20ex;">
+                <a href="../" class="mx-auto my-5">
+                    <img src="../assets/logo.png" style="height: 12ex;" alt="logo"/>
+                </a>
+            </div>
+            <div class="row">
+                <img src="../assets/symbol-rain.svg" class="mx-auto" style="width: 80%;" alt="decoration"/>
+            </div>
+        </div>
+        <article class="col-lg-10 bg-white column-center" style="max-width: 60em;">
+            <div class="row text-center mt-5 ">
+                <div class="col-lg-1"></div>
+                <div class="col-lg-10">
+                    <h1 class="mx-auto my-auto">Introducing EDXML</h1>
+                </div>
+                <div class="col-lg-1"></div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2"></div>
+                <div class="text-center col-sm-8">
+                    <p class="mt-3"><i>Teaching machines to tell stories</i></p>
+                </div>
+                <div class="col-sm-2"></div>
+            </div>
+            <div class="row my-5" style=""></div>
+            <section>
+                <div class="row">
+                    <div class="col-sm-1"></div>
+                    <div class="initial col-sm-9">
+                      <h2><a class="label" href="#why"></a>Why?</h2>
+                      <p>EDXML enables machines to tell stories. Before we explain how that works, let us briefly state why we want to do this in the first place. The goal is to make computers interact more naturally with human data analysts. To perceive computers not just as machines that take commands and execute them, but as knowledgeable assistants that can actively join us to find the missing pieces of the puzzle, to connect the dots, to reveal the bigger picture.</p>
+                      <p>For thousands of years humans have exchanged knowledge by telling stories. This is our source of inspiration. We can teach machines to tell stories, too. And to see the story told by the data that is given to them. Then, machines can understand our data the way we do, see how it fits together, recognize patterns.</p>
+                      <p><i>Your computer will be your guide rather than you having to guide your computer.</i></p>
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+            </section>
+
+            <section>
+                <div class="row">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-9">
+                        <h2><a class="label" href="#show-white"></a>Snow White</h2>
+                        <p>We will demonstrate how machines can tell stories by telling <a href="https://en.wikipedia.org/wiki/Snow_White">the story of Snow White</a>. Along the way, we will show how we can use EDXML as a language to express the meaning of data in a way that both humans and machines can understand.</p>
+                        <p>To give an impression of what things look like 'under the hood' we will be showing snippets of XML. In case you are not familiar with that, it may look a bit intimidating. Do not worry though, fully understanding these snippets is not essential to follow along.</p>
+                        <p>So let us begin the story of Snow White by introducing the main character:</p>
+                        <pre><code class="xml">&lt;event event-type=&quot;character-intro&quot;&gt;
+  &lt;properties&gt;
+    &lt;name&gt;Show White&lt;/name&gt;
+    &lt;type&gt;princess&lt;/type&gt;
+    &lt;look&gt;friendly&lt;/look&gt;
+    &lt;look>handsome&lt;/look&gt;
+  &lt;/properties&gt;
+&lt;/event&gt;</code></pre>
+                        <p class="small"><i>Note that the XML snippets shown here have been slightly abbreviated. As such they may not be valid EDXML.</i></p>
+                        <p>What we see here is called an <i>event</i>. In EDXML, all data is represented as events. While the above event may look complicated, events are actually not much different from rows in a spreadsheet. In our example, the event has three 'columns': <code>name</code>, <code>type</code> and <code>look</code>. These columns are called <i>properties</i>. Properties have values called <i>objects</i>.</p>
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+            </section>
+            <section>
+                <div class="row">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-9">
+                        <h2><a class="label" href="#meaning-origin"></a>The Origin of Meaning</h2>
+                        <p>When we, humans, look at the above event and see a property 'look' with value 'handsome', then we can easily guess what the meaning of that data is. Machines cannot do that. Throughout the course of our lives we become familiar with a vast number of concepts. Machines do not.</p>
+                        <p>To a machine, the event displayed above <i>has no meaning whatsoever</i>. This is key in understanding what EDXML is all about: To give machines access to those concepts and enable them to work with data knowing what that data means, just like humans do.</p>
+                        <p>But how do we do that? In EDXML, events are given meaning by associating them with an <i>event type</i>. You may already have spotted the following detail in the event that we showed earlier:</p>
+
+                        <pre><code class="xml">event-type=&quot;character-intro&quot;</code></pre>
+
+                        <p>This associates the event with an event type named <code>character-intro</code>. An event type defines which properties the events have, what kinds of values these properties have, which concept the property refers to, and so on. We will show this in some detail in a moment.</p>
+                        <p>EDXML integrates event type definitions and events into a single data format. This assures that no data ever goes without its meaning.</p>
+                        <p>An event type allows events to be transformed from a row in a spreadsheet to a paragraph in a novel. Literally. Based on the event type definition a computer can translate the above EDXML event into the following text:</p>
+
+                        <p class="text-center my-5"><i>Once upon a time there was a princess named Snow White, who looked particularly handsome and friendly.</i></p>
+
+                        <p>So here we have a machine explaining the exact meaning of the data to us. We will see how that trick works later.</p>
+                        <p>As mentioned earlier, event types define which properties an event can have. For example, the definition of the <code>name</code> property might look like this:</p>
+
+                        <pre><code class="xml">&lt;property name=&quot;name&quot;/></code></pre>
+
+                        <p>This is basically just the equivalent of saying that the rows in a spreadsheet have a column titled "name".
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+            </section>
+            <section>
+                <div class="row">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-9">
+                        <h2><a class="label" href="#concepts"></a>Concepts</h2>
+                        <p>The real magic happens when properties get associated with <i>concepts</i>. Let us extend the property definition to include a concept association:</p>
+
+                        <pre><code class="xml">
+&lt;property name=&quot;name&quot;>
+    &lt;property-concept name="princess"/&gt;
+&lt;/property&gt;
+</code></pre>
+
+                        <p>Now the property is associated with a concept named <code>princess</code>. Concepts describe what the data is about. A concept is like a character in the story that the data tells us. A concept can make its appearance in many places throughout the data set. Remember how the example event mentioned a name:</p>
+                        <pre><code class="xml">&lt;name&gt;Show White&lt;/name&gt;</code></pre>
+
+                        <p>Combined with the property definition and its associated concept a computer can now learn what this part of the event means:</p>
+                        <p class="text-center my-3"><i>There is a princess. The princess has a name. The name is "Snow White".</i></p>
+                        <p>In a data set there can be many events that refer to a particular concept. Each event may reveal more information about the concept. Just like the reader of a novel gradually gets to know a character by reading the novel, paragraph by paragraph, a machine learns all about a concept by reading the EDXML data, event by event.</p>
+                        <p>Data analysis typically requires the analyst to "read the book" first. What we mean by this is that the analyst repeatedly searches the data set to find related bits of information that are needed to answer a question. Using EDXML, machines can read the book for us and tell us about it.</p>
+                        <p>The story continues. We learn that the princess lives in a castle:</p>
+
+                        <pre><code class="xml">
+&lt;event event-type=&quot;whereabouts&quot;&gt;
+    &lt;properties&gt;
+        &lt;name&gt;Show White&lt;/name&gt;
+        &lt;whereabouts>the castle&lt;/whereabouts&gt;
+    &lt;/properties&gt;
+&lt;/event&gt;
+</code></pre>
+                        <p>This event has a different event type, because it has different properties and generally a different meaning. Let us assume that the <code>name</code> property is defined in a similar way as in the previous event type. It is associated with the same concept. The <code>whereabouts</code> property tells us where the character lives. It could be defined like this:</p>
+
+                        <pre><code class="xml">
+&lt;property name=&quot;whereabouts&quot;>
+    &lt;property-concept name="princess"/&gt;
+&lt;/property&gt;
+                        </code></pre>
+
+                        <p>Now, both the <code>name</code> and <code>whereabouts</code> properties are associated with the princess concept. This <i>suggests</i> that both are related.</p>
+
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+            </section>
+            <section>
+                <div class="row">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-9">
+                        <h2><a class="label" href="#relations"></a>Property Relations</h2>
+                      <p>Now look at our 'whereabouts' event. What does it mean? As humans, we are quick to infer that both "the castle" and "Snow White" are properties of one particular princess. Snow White lives in a castle, right? Well, the data does not explicitly say this. The name and whereabouts could also be details about two <i>different</i> princesses.</p>
+                        <p>More technically speaking: There could be two distinct <i>instances</i> of the princess concept. Somehow, we need to explicitly tell that both properties refer to the same instance. We can do that by adding a <i>property relation</i> to the event type definition. Such a definition could look like this:</p>
+
+                        <pre><code class="xml"><relations>
+    &lt;intra source=&quot;name&quot;
+           target="whereabouts"
+           predicate="lives in"/>
+</relations>
+</code></pre>
+
+                        <p>What we see here is an <i>intra-concept</i> relation, relating the <code>name</code> property to the <code>whereabouts</code> property. In EDXML an intra-concept relation indicates that both properties refer to the same concept instance. The predicate tells us in more detail how the two are related. Using this predicate, which is just a free form text, computers can describe relations between property objects:</p>
+
+                        <p class="text-center mb-4"><i>Snow White lives in the castle</i></p>
+
+                        <p>Combining both events we have seen so far, machines can learn two things about our princess:</p>
+                        <p>
+                            <dl>
+                                <dt>Name:</dt><dd>Snow White</dd>
+                                <dt>Whereabouts:</dt><dd>the castle</dd>
+                            </dl>
+                        </p>
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+            </section>
+            <section>
+                <div class="row">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-9">
+                        <h2><a class="label" href="#concept-mining"></a>Concept Mining</h2>
+                        <p>By repeatedly using relations to connect one piece of information to another, machines can learn everything there is to know about the concepts in a data set. This process is called <i>concept mining</i>. It is a simple form of <i>machine reasoning</i> which is similar to human associative reasoning.</p>
+                        <p>The EDXML SDK contains a basic concept mining implementation. Let us use its <code>edxml-mine</code> utility to see what a machine can learn by reading the full Snow White data set:</p>
+
+                        <div class="my-4" id="termynal" data-termynal data-ty-typeDelay="40" data-ty-lineDelay="700" style="font-size: inherit">
+                            <span data-ty="input">edxml-mine -f snow-white.edxml --tell</span>
+                            <span data-ty></span>
+                            <span data-ty>Found a fairy tale character: 'Snow White'</span>
+                            <span data-ty>Found attribute: 'Snow White' (character name) looks 'friendly' (character appearance)</span>
+                            <span data-ty>Found attribute: 'Snow White' (character name) looks 'handsome' (character appearance)</span>
+                            <span data-ty>Found attribute: 'Snow White' (character name) is a 'princess' (character type)</span>
+                            <span data-ty>Found attribute: 'Snow White' (character name) lives in 'the castle of the queen' (location)</span>
+                        </div>
+
+                        <p>Above, we actually see a machine reading some data and telling us what it learns from it. You can try this for yourself if you like. The Github page of the EDXML foundation hosts both the <a href="https://github.com/edxml/sdk">EDXML SDK</a> and <a href="https://github.com/edxml/snow-white">the Snow White data set</a>.</p>
+                        <p>We also promised to reveal how EDXML events are translated into English prose. This is actually disappointingly simple. Each event type definition can contain a text template, such as this one:</p>
+
+                        <pre><code class="plaintext">[[when]] there was a [[type]] named [[name]], who looked particularly [[look]].
+                        </code></pre>
+
+                        <p>The object values from the event are inserted in the placeholders (the names between square brackets), <i>et voilà</i>. Transforming the full Snow White data set into English can be done using the <code>edxml-to-text</code> utility from the EDXML SDK. The following command should do the trick:</p>
+                        <pre><code class="plaintext">edxml-to-text -f snow-white.edxml</code></pre>
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+            </section>
+            <section>
+                <div class="row mb-5">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-9">
+                        <h2>Further Reading</h2>
+                        <p>Hopefully the Snow White story helped to get a basic idea of what EDXML is. You can use below links to continue reading about specific subjects in more detail.</p>
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+            </section>
+            <div class="row">
+                <div class="col-sm-1"></div>
+                <div class="col-sm-5 mb-5">
+                    <h3>Story Telling</h3>
+                    <p>Explore the idea of story telling and how it is embedded in the data modelling mechanisms of EDXML.</p>
+                    <p class="small"><a href="../story-telling/">Continue to article</a></p>
+                </div>
+                <div class="col-sm-5 mb-5">
+                    <h3>Concept Mining</h3>
+                    <p>If you ever put together a jigsaw puzzle you are not far from understanding how EDXML concept mining works.</p>
+                    <p class="small"><a href="../concept-mining/">Continue to article</a></p>
+                </div>
+                <div class="col-sm-1"></div>
+            </div>
+            <div class="row">
+                <div class="col-sm-1"></div>
+                <div class="col-sm-5 mb-5">
+                    <h3>Scientific Background</h3>
+                    <p>About the science of knowledge representation and where EDXML fits in.</p>
+                    <p class="small"><a href="../science/">Continue to article</a></p>
+                </div>
+                <div class="col-sm-5 mb-5">
+                    <h3>Ontologies</h3>
+                    <p>Ontologies are the technical heart that makes EDXML tick. This article uncovers a bit of how machines view the human world.</p>
+                    <p class="small"><a href="../ontology/">Continue to article</a></p>
+                </div>
+                <div class="col-sm-1"></div>
+            </div>
+            <div class="row">
+                <div class="col-sm-1"></div>
+                <div class="col-sm-5 mb-5">
+                    <h3>Specification</h3>
+                    <p>About the EDXML specification, which describes in detail how EDXML data is structured.</p>
+                    <p class="small"><a href="../spec/">Continue to article</a></p>
+                </div>
+                <div class="col-sm-5 mb-5">
+                    <h3>SDK</h3>
+                    <p>The EDXML Software Development Kit provides the basic software components for developing EDXML generators, processors, storage backends and so on.</p>
+                    <p class="small"><a href="../sdk/">Continue to article</a></p>
+                </div>
+                <div class="col-sm-1"></div>
+            </div>
+            <div class="row my-5 text-center">
+                <div class="col-sm-1"></div>
+                <div class="col-sm-10">
+                    <p class="small">Copyright © <a href="../foundation/">The EDXML Foundation</a></p>
+                </div>
+                <div class="col-sm-2"></div>
+            </div>
+            <div class="row my-5 text-center">
+                <div class="col-sm-1"></div>
+                <div class="col-sm-10">
+                    <div class="row" style="height: 6ex;">
+                        <a class="mx-auto my-auto" href="../"><img src="../assets/home.svg" alt="Go to home page" style="width: 4ex;"/></a>
+                    </div>
+                </div>
+                <div class="col-sm-1"></div>
+            </div>
+        </article>
+        <div class="col-sm-1 d-none d-lg-block d-xl-block"></div>
+    </div>
+</div>
+</body>
+</html>

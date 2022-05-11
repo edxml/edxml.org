@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="How to turn data into stories that make sense to both humans and machines.">
+    <meta name="author" content="Dik Takken">
+
+    <title>Story Telling | EDXML</title>
+
+    <link rel="icon" type="image/png" href="../assets/favicon.png" sizes="32x32">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/styles/mono-blue.min.css">
+    <link rel="stylesheet" href="../assets/customizations.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js"></script>
+    <script src="../assets/load-fonts.js"></script>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-2 d-none d-lg-block d-xl-block column-left">
+            <div class="row" style="height: 20ex;">
+                <a href="../" class="mx-auto my-5">
+                    <img src="../assets/logo.png" style="height: 12ex;" alt="logo"/>
+                </a>
+            </div>
+            <div class="row">
+                <img src="../assets/symbol-rain.svg" class="mx-auto" style="width: 80%;" alt="decoration"/>
+            </div>
+        </div>
+        <article class="col-lg-10 bg-white column-center" style="max-width: 60em;">
+            <div class="row text-center mt-5 ">
+                <div class="col-lg-1"></div>
+                <div class="col-lg-10">
+                    <h1 class="mx-auto my-auto">Story Telling with EDXML</h1>
+                </div>
+                <div class="col-lg-1"></div>
+            </div>
+            <div class="row my-5" style=""></div>
+            <div class="row">
+                <div class="col-sm-2"></div>
+                <div class="text-center col-sm-8">
+                    <i>Thinking about data as stories is tightly related to actual EDXML features like event types and concepts.</i>
+                </div>
+                <div class="col-sm-2"></div>
+            </div>
+            <div class="row my-5"></div>
+            <div class="row">
+                <div class="col-sm-1"></div>
+                <div class="col-sm-10">
+                    <img class="w-100" src="../assets/story.jpg" alt="A book as an analogy for semantic EDXML data which is like a story, including characters and story lines">
+                </div>
+                <div class="col-sm-1"></div>
+            </div>
+            <section id="events-stories">
+                <div class="row">
+                    <div class="col-sm-1"></div>
+                    <div class="initial col-sm-9">
+                        <h2><a class="label" href="#events-stories"></a>Events as Stories</h2>
+                        <p>EDXML data contains a sequence of data records called <i>events</i>. Each of these events represents a little story. Literally, because EDXML events can actually be translated into <a href="../spec#templates">plain English</a>. A data source generating a sequence of events is like a novel being written.</p>
+                        <p>Two sequences of events of different types, such as those produced by two different <a href="../sdk/#transcoders">transcoders</a>, are like story lines. Each of them is developing in its own way and at its own pace. Many event types can be defined to represent all sorts of things. Think of a financial transaction, an appointment in an agenda, a PDF document, a Twitter message, virtually anything.</p>
+                        <p>Machines can read these stories and understand what the story is about. This is achieved by including a kind of grammar with the data.</p>
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+            </section>
+            <section id="ontology">
+                <div class="row">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-9">
+                        <h2><a class="label" href="#ontology"></a>Ontology</h2>
+                        <p>This grammar is contained in the <a href="../ontology/">EDXML ontology</a>. Before a data source outputs any EDXML events, it will first output an ontology containing the definitions of all types of events that will appear in the data that follows. These definitions explain the structure and context of the story that is about to unfold. Context helps to understand the meaning of all the happenings (events) that make up the story line.</p>
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+            </section>
+            <section id="grammar">
+                <div class="row">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-9">
+                        <h2><a class="label" href="#grammar"></a>Grammar</h2>
+                        <p>The event type definitions are similar to grammars used in natural languages. Grammar gives structure to a sentence, enabling us to understand the meaning of it. The idea of using grammar to give meaning translates nicely into the way EDXML works. We have all done grammar in school, so we will use that to illustrate. Consider this sentence:</p>
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+                <div class="row my-5">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-9">
+                        <img class="w-100" src="../assets/edxml-grammar-paths-1.svg" alt="An example sentence showing marked concepts">
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-9">
+                        <p>In the above sentence, we marked the nouns and associated them with two different concepts. An EDXML ontology does the exact same thing by associating event properties with concepts. The <a href="../intro">introduction</a> shows what these associations actually look like in some detail. In actual data, the concepts are more likely to be dull things like products, users or files rather than princesses and castles. The mechanism is the same.</p>
+                        <p>The EDXML 'grammar' also relates different components of a sentence. For example, we can define a relationship between the person and the building:</p>
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+                <div class="row mb-5">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-9">
+                        <img class="w-100" src="../assets/edxml-grammar-paths-2.svg" alt="An example sentence showing an inter-concept relation">
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-9">
+                        <p>In EDXML we do this by defining an <i>inter-concept relation</i> between two properties of an event type.</p>
+                        <p>We can also mark the adjectives in the sentence and relate them to the concept that they refer to:</p>
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+                <div class="row my-5">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-9">
+                        <img class="w-100" src="../assets/edxml-grammar-paths-3.svg" alt="An example sentence showing an intra-concept relation">
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-9">
+                        <p>This is done by defining an <i>intra-concept relation</i> between two properties.</p> Combining definitions of event types, properties, concepts and relations, machines can read the event data much like how humans read a book.
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+            </section>
+            <section id="concepts">
+                <div class="row">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-9">
+                        <h2><a class="label" href="#concepts"></a>Concepts</h2>
+                        <p>We already mentioned concepts. Concepts are a <a href="../spec/#concepts">key feature in EDXML</a>. Their role is similar to characters in a story. The ontology introduces the various characters that feature in the data. They are basically just mentioned and listed up front, it does not contain any spoilers regarding how they will develop in the story.</p>
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+                <div class="row my-5" style="">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-9">
+                        <img class="w-100" src="../assets/characters2.jpg" alt="Egyptian fresco depicting various characters used to tell a story">
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-9">
+                        <p>Like the characters in a real novel, EDXML concepts have an <i>emergent nature</i>: Only by reading the full novel and following story lines the reader eventually gets to know the characters. In EDXML, concepts are definitions of items from which the information lies scattered about in multiple events. Events that may even be generated by multiple data sources. By reading the full data set, all knowledge about a particular concept can be correlated automatically. This process is called <a href="../concept-mining">concept mining</a> in EDXML.</p>
+                        <p>So the stories that EDXML events represent may be told by multiple data sources in concert. Each source introduces its own event types and concepts and independently outputs its own event sequence. Interesting things may happen when the stories told by the various sources are somehow related. For example, the same character may appear in multiple sources and each source might tell about different aspects of the same character.</p>
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+            </section>
+            <section id="stories-more-better">
+                <div class="row">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-9">
+                        <h2><a class="label" href="#stories-more-better"></a>Stories: More is Better</h2>
+                        <p>Incorporating more data sources into data analysis operations can be challenging. The number of characters and story lines becomes overwhelming and database queries get complicated. The challenge of <a href="../concept-mining">solving the puzzle</a> becomes increasingly harder. </p>
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+                <div class="row my-5" style="">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-9">
+                    <img class="w-100" style="" src="../assets/puzzle-chaos.jpg" alt="A pile of jigsaw puzzle pieces as an analogy for a mixed data set">
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-9">
+                        <p>EDXML turns this upside down. The more diverse the data set, the more opportunity for machines to correlate and produce high grade knowledge. Each new property relation unlocks new reasoning paths that machines can use to discover new facts. Where cognitive strain forces humans to surrender, machines excel and come to their rescue.</p>
+                        <p>Now the computer can guide the analyst instead of the other way around.</p>
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+            </section>
+            <div class="row my-5">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-7">
+                    <div class="row text-center font-italic gray small mt-5 mb-2">
+                        <div class="col">other subjects</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 text-center text-md-left">
+                            <a class="small" href="../intro/">Introduction</a>
+                        </div>
+                        <div class="col-md-6 text-center text-md-right">
+                            <a class="small" href="../concept-mining/">Concept Mining</a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 text-center text-md-left">
+                            <a class="small" href="../ontology/">Ontologies</a>
+                        </div>
+                        <div class="col-md-6 text-center text-md-right">
+                            <a class="small" href="../science/">Scientific Background</a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 text-center text-md-left">
+                            <a class="small" href="../foundation/">EDXML Foundation</a>
+                        </div>
+                        <div class="col-md-6 text-center text-md-right">
+                            <a class="small" href="../sdk/">SDK</a>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6 text-center text-md-left">
+                            <a class="small" href="../spec/">Specification</a>
+                        </div>
+                        <div class="col-md-6 text-center text-md-right">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3"></div>
+            </div>
+            <div class="row my-5 text-center">
+                <div class="col-sm-1"></div>
+                <div class="col-sm-9">
+                    <p class="small">Copyright © <a href="../foundation/">The EDXML Foundation</a></p>
+                </div>
+                <div class="col-sm-2"></div>
+            </div>
+            <div class="row my-5 text-center">
+                <div class="col-sm-1"></div>
+                <div class="col-sm-9">
+                    <div class="row" style="height: 6ex;">
+                        <a class="mx-auto my-auto" href="../"><img src="../assets/home.svg" alt="Go to home page" style="width: 4ex;"/></a>
+                    </div>
+                </div>
+                <div class="col-sm-2"></div>
+            </div>
+        </article>
+        <div class="col-sm-1 d-none d-lg-block d-xl-block"></div>
+    </div>
+</div>
+</body>
+</html>

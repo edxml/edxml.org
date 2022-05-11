@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Modular EDXML ontologies yield shared, composable knowledge.">
+    <meta name="author" content="Dik Takken">
+
+    <title>Ontologies | EDXML</title>
+
+    <link rel="icon" type="image/png" href="../assets/favicon.png" sizes="32x32">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/styles/mono-blue.min.css">
+    <link rel="stylesheet" href="../assets/customizations.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js"></script>
+    <script src="../assets/load-fonts.js"></script>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-2 d-none d-lg-block d-xl-block column-left">
+            <div class="row" style="height: 20ex;">
+                <a href="../" class="mx-auto my-5">
+                    <img src="../assets/logo.png" style="height: 12ex;" alt="logo"/>
+                </a>
+            </div>
+            <div class="row">
+                <img src="../assets/symbol-rain.svg" class="mx-auto" style="width: 80%;" alt="decoration"/>
+            </div>
+        </div>
+        <article class="col-lg-10 bg-white column-center" style="max-width: 60em;">
+            <div class="row text-center mt-5 ">
+                <div class="col-lg-1"></div>
+                <div class="col-lg-10">
+                    <h1 class="mx-auto my-auto">EDXML Ontologies</h1>
+                </div>
+                <div class="col-lg-1"></div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2"></div>
+                <div class="text-center col-sm-8">
+                    <i>Ontologies are machine-readable descriptions of what the data landscape looks like.</i>
+                </div>
+                <div class="col-sm-2"></div>
+            </div>
+            <div class="row my-5"></div>
+            <section id="components">
+                <div class="row">
+                    <div class="col-sm-1"></div>
+                    <div class="initial col-sm-9">
+                        <h2><a class="label" href="#components"></a>Components</h2>
+                        <p>Every EDXML data stream starts with the ontology. The ontology is like the introduction of a novel describing the various characters in <a href="../story-telling/">the story</a> that follows. The ontology consists of the following components:</p>
+                        <p>
+                            <dl>
+                                <dt>Concepts</dt>
+                                <dd>Types of entities that occur in the data set. Depending on what the data is about these may be things like persons, computers, bank accounts, whatever you wish to define.</dd>
+                                <dt>Object Types</dt>
+                                <dd>Types of data, like dates, bank account numbers or email addresses. Again, you can define anything you need to describe the data.</dd>
+                                <dt>Event Types</dt>
+                                <dd>Types of events that are in the data set. An event type defines one or more properties and the object type of their values, relations between properties, attachment types, and so on. Event types can be seen as templates for <a href="../story-telling/">paragraphs in a novel</a>, expressed in terms of object types and concepts.</dd>
+                                <dt>Event Sources</dt>
+                                <dd><p>Each event is tagged with the data source that it originated from. Data sources form a virtual tree structure and are identified by means of URIs like</p>
+                                <p><code>/company/offices/stuttgart/clientrecords/2009/</code></p>
+                                </dd>
+                            </dl>
+                        </p>
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+                <div class="row my-5" style="">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-9">
+                        <p>Ontology components define the structure of events at various levels of detail. At the top level, there are the event types. An event type might represent an e-mail message for example. An event type can define one or more properties, such as a sender or recipient. These properties may be associated with a concept. Each property is associated with an object type. Finally, at the lowest level, an object type defines a data type.</p>
+                        <p>These detail levels are illustrated in the following diagram.</p>
+                        <img class="w-100 mt-3" alt="The hierarchical structure of EDXML event types, properties, object types and data types." src="../assets/event-type-def-structure.svg" width="80%">
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+            </section>
+            <section id="modular">
+                <div class="row">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-9">
+                        <h2><a class="label" href="#modular"></a>Modular</h2>
+                        <p>Most ontologies are monolithic, containing a complete description of all types of data. EDXML uses modular ontologies. Each data source only needs to output the definitions that are relevant for the data that it produces: <a href="https://en.wikipedia.org/wiki/Domain_knowledge">Domain knowledge</a>. This yields simple, small <i>domain ontologies</i> that are easy to create and maintain.</p>
+                        <p>EDXML data streams from multiple data sources can be merged. This requires that the ontologies contained in both streams are merged as well. The <a href="../spec/">EDXML specification</a> outlines how machines can merge two EDXML ontologies into one. This technique is implemented in the <a href="../sdk/">EDXML SDK</a>.</p>
+                        <p>The final result is <i>composable knowledge</i>. By combining EDXML data sources one can compose a body of knowledge that correlates objects and concepts from various domains.</p>
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+                <div class="row" style="height: 28ex;">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-9">
+                        <div class="row" style="height: 28ex;">
+                            <img src="../assets/knowledge-zipper-long.svg" alt="Merging distributed ontologies enable integrating semantic data like teeth of a zipper" class="mx-auto my-auto" style="width: 80%;"/>
+                        </div>
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+            </section>
+            <section id="compatibility">
+                <div class="row">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-9">
+                        <h2><a class="label" href="#compatibility"></a>Ontology Compatibility</h2>
+                        <p>It might happen that two ontologies define the same thing in different ways. For example, both ontologies might describe an object type for storing e-mail addresses. Now, the following situations can occur:</p>
+                        <ul>
+                            <li>Two distinct object types for an e-mail address</li>
+                            <li>Two of the same object types defined differently</li>
+                        </ul>
+                        <p>The former situation may occur when one data source outputs an object type named <code>email</code> while the other defines <code>email-address</code> while both have the same meaning. Because these are two distinct object types, machines will never notice any e-mail addresses that occur in both data sources. In other words, a computer will not know it when two sources talk about the same thing. The data will not be linked and correlated.</p>
+                        <p>The latter situation can occur when two data sources both define the same, equally named object type while their definitions differ. For example, both definitions might specify a different description of the object type. In this case, the two ontologies are said to be <i>incompatible</i> and cannot be automatically merged.</p>
+                        <p>EDXML provides solutions for both problems by means of versioning and ontology bricks.</p>
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+            </section>
+            <section id="bricks">
+                <div class="row mt-5" style="">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-9">
+                        <img class="w-100" src="../assets/bricks.jpg" alt="LEGO bricks as an analogy of how ontology bricks are used for building EDXML ontologies">
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-9">
+                        <h2><a class="label" href="#bricks"></a>Ontology Bricks</h2>
+                        <p>Definitions of object types and concepts can be shared between data sources by keeping them in an <i>ontology brick</i>. Ontology bricks are building blocks for constructing modular EDXML ontologies that are logically interconnected and mutually compatible. The EDXML Foundation maintains a public collection of shared bricks on <a href="https://github.com/edxml/bricks" target="_blank">Github</a>.</p>
+                        <p>Note that ontology bricks only define object types and concepts. Event types and sources are specific to a single data source and must not be shared. Each data source can define its own domain specific event types in terms of object types and concepts that it shares with other data sources. This yields modular domain ontologies which can be merged on demand.</p>
+                        <p>This principle of shared versus domain specific ontology components is similar to the principle of <a href="../science#distributed-ontologies">double articulation</a> in ontology engineering, where ontologies are composed of domain axiomatizations and application axiomatizations.</p>
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+            </section>
+            <section id="evolution">
+                <div class="row">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-9">
+                        <h2><a class="label" href="#evolution"></a>Ontology Evolution</h2>
+                        <p>Upgrading a data model shared by multiple systems can be a true nightmare: Upgrading one system will expose all others to data they cannot handle.</p>
+                        <p>EDXML ontologies are versioned and the EDXML specification defines a procedure to perform automatic ontology upgrades. In fact, data sources can output upgrades in the middle of an EDXML data stream. These upgrades flow along with the data to all system components that consume the data stream. These system components process the upgrades as part of their regular operation.</p>
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+            </section>
+            <section id="kr">
+                <div class="row">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-9">
+                        <h2><a class="label" href="#kr"></a>Knowledge Representation</h2>
+                        <p>When an ontology is combined with EDXML events, knowledge is generated. As this knowledge only emerges as a result of processing the actual data, we say that the knowledge in EDXML is <a href="../science/#emergence">emergent</a>.</p>
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+            </section>
+            <div class="row my-5">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-7">
+                    <div class="row text-center font-italic gray small mt-5 mb-2">
+                        <div class="col">other subjects</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 text-center text-md-left">
+                            <a class="small" href="../story-telling/">Story Telling</a>
+                        </div>
+                        <div class="col-md-6 text-center text-md-right">
+                            <a class="small" href="../concept-mining/">Concept Mining</a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 text-center text-md-left">
+                            <a class="small" href="../intro/">Introduction</a>
+                        </div>
+                        <div class="col-md-6 text-center text-md-right">
+                            <a class="small" href="../science/">Scientific Background</a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 text-center text-md-left">
+                            <a class="small" href="../foundation/">EDXML Foundation</a>
+                        </div>
+                        <div class="col-md-6 text-center text-md-right">
+                            <a class="small" href="../sdk/">SDK</a>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6 text-center text-md-left">
+                            <a class="small" href="../spec/">Specification</a>
+                        </div>
+                        <div class="col-md-6 text-center text-md-right">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3"></div>
+            </div>
+            <div class="row my-5 text-center">
+                <div class="col-sm-1"></div>
+                <div class="col-sm-9">
+                    <p class="small">Copyright © <a href="../foundation/">The EDXML Foundation</a></p>
+                </div>
+                <div class="col-sm-2"></div>
+            </div>
+            <div class="row my-5 text-center">
+                <div class="col-sm-1"></div>
+                <div class="col-sm-9">
+                    <div class="row" style="height: 6ex;">
+                        <a class="mx-auto my-auto" href="../"><img src="../assets/home.svg" alt="Go to home page" style="width: 4ex;"/></a>
+                    </div>
+                </div>
+                <div class="col-sm-2"></div>
+            </div>
+        </article>
+        <div class="col-sm-1 d-none d-lg-block d-xl-block"></div>
+    </div>
+</div>
+</body>
+</html>

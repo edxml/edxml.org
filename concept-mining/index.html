@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Automatically correlate anything to everything to discover hidden knowledge. A simple technique that is inspired by how humans solve jigsaw puzzles.">
+    <meta name="author" content="Dik Takken">
+
+    <title>Concept Mining | EDXML</title>
+
+    <link rel="icon" type="image/png" href="../assets/favicon.png" sizes="32x32">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/styles/mono-blue.min.css">
+    <link rel="stylesheet" href="../assets/customizations.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js"></script>
+    <script src="../assets/load-fonts.js"></script>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-2 d-none d-lg-block d-xl-block column-left">
+            <div class="row" style="height: 20ex;">
+                <a href="../" class="mx-auto my-5">
+                    <img src="../assets/logo.png" style="height: 12ex;" alt="logo"/>
+                </a>
+            </div>
+            <div class="row">
+                <img src="../assets/symbol-rain.svg" class="mx-auto" style="width: 80%;" alt="decoration"/>
+            </div>
+        </div>
+        <article class="col-lg-10 bg-white column-center" style="max-width: 60em;">
+            <div class="row mt-5 text-center">
+                <div class="col-lg-1"></div>
+                <div class="col-lg-10">
+                    <h1 class="mx-auto my-auto">Concept Mining</h1>
+                </div>
+                <div class="col-lg-1"></div>
+            </div>
+            <div class="row my-5" style=""></div>
+            <div class="row">
+                <div class="col-sm-2"></div>
+                <div class="text-center col-sm-8">
+                    <i>Concept mining enables machines to autonomously correlate structured data to obtain 'the big picture'. The technique is inspired on how humans think and cooperate in teams to make sense of data.</i>
+                </div>
+                <div class="col-sm-2"></div>
+            </div>
+            <div class="row my-5"></div>
+            <section id="associative-reasoning">
+                <div class="row">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-9">
+                        <h2><a class="label" href="#associative-reasoning"></a>Associative Reasoning</h2>
+                        <p><i>Hey guys, look what I found!</i></p>
+                        <p>This phrase can be heard daily in teams all over the globe. Imagine a police investigation team for instance. Investigator Bob: "Look, I found an e-mail message sent to that address we found yesterday, <code>anonymous@mail.com</code>." He continues: "And next to this e-mail address a name: John Wilson. I guess the sender had the real name of this dude in their address book!"</p>
+                        <p>A couple of desks away Bob's colleague Alice is looking at address books from seized smartphones. She responds: "John Wilson, that sounds familiar. Where did I see that name again?". Some minutes later: "Ah, here it is. That name is in a contacts list of this phone we found. It has phone number <code>0031-61234567</code>. Apparently, he frequently called a guy named Leonard".</p>
+                        <p>This exchange is a typical example of associative reasoning in teams. It can be observed in police investigation teams, fraud research teams, security operations centers and many other types of environments where digging in data is key. The associative reasoning performed by humans is incredibly powerful, but also fragile. What if Alice had left her desk to go to the coffee machine while Bob said "Hey guys, look what I found"? The link with the address book in the smartphone might not have been established. Or what if Alice did not recall seeing that name in the contacts list? Same thing.</p>
+                        <p>Now imagine a <i>machine</i> being part of that team. A machine that has all available research data at its disposal, able to locate any data record in microseconds. A machine that knows how to correlate all of that data, knows how it is structured, knows how to associate one record with related ones, just like human analysts do. Would that machine not be a perfect team member?</p>
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+            </section>
+            <section id="data-jigsaw-puzzle">
+                <div class="row my-5" style="">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-9">
+                        <img class="w-100" alt="Fitting two jigsaw puzzle pieces together" src="../assets/connect.jpg">
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-1"></div>
+                    <div class="initial col-sm-9">
+                        <h2><a class="label" href="#data-jigsaw-puzzle"></a>Data, a Jigsaw Puzzle</h2>
+                        <p>Data is like a pile of pieces of a jigsaw puzzle. Like the pieces of a puzzle, the individual data records come in many shapes. A single piece does not reveal much of the big picture. Getting the big picture requires a human analyst to sift through the pieces and connect the ones that fit.</p>
+
+                        <p>Consider a very, very big jigsaw puzzle, consisting of millions of pieces: The EDXML events. The puzzle, once completed, shows a detailed picture of a big city with skyscrapers, trees, people and cars on the streets. Only, we cannot see the big picture yet. All we have is a big pile of pieces.</p>
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+                <div class="row my-5" style="">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-9">
+                        <img class="w-100" src="../assets/skyscrapers.jpg" alt="skyscrapers">
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-9">
+                        <p>Completing the puzzle is a daunting task. And unfortunately, computers are generally not very helpful in trying to complete the puzzle. The reason is that computers do not know the meaning of the data they work with. They have no idea what a skyscraper or a tree is. To the computer, the pieces in the puzzle show all sorts of seemingly unrelated colorful patterns. It takes a human analyst to interpret the data and connect the dots.</p>
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+            </section>
+            <section id="concepts">
+                <div class="row">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-9">
+                        <h2><a class="label" href="#concepts"></a>Concepts</h2>
+                        <p>EDXML enables associating the puzzle pieces with concepts like <i>tree</i> or <i>car</i>. In a real jigsaw puzzle, many pieces convey only a suggestion of what kind of thing the piece belongs to. A piece may look like the wheel of a vehicle, but we cannot see if it is from a family car or from a truck. EDXML concepts enable computers to recognize what a piece looks like. They enable the computer to actually start puzzling in the same way as a human being: Iteratively connect pieces of a vehicle to get a better idea of what kind of vehicle it is. A piece of a kind of vehicle may turn out to fit another piece that clearly belongs to a truck, revealing that it is actually a truck.</p>
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+                <div class="row my-5" style="">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-9">
+                        <img class="w-100" alt="A pile of jigsaw puzzle pieces representing a data set" src="../assets/puzzle-pile.jpeg">
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+            </section>
+            <section id="relations-and-shapes">
+                <div class="row">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-9">
+                        <h2><a class="label" href="#relations-and-shapes"></a>Relations and Shapes</h2>
+                        <p>Besides concepts EDXML also supports defining relations between events. These relations have the exact same purpose as the shapes of puzzle pieces: they determine which events fit together. The <a href="../spec/">EDXML specification</a> describes how to define both <i>inter</i>-concept and <i>intra</i>-concept relations. An intra-concept relation relates information about the same concept. It can be used to connect two pieces of a car-like thing. The inter-concept relations relate different concepts. These can be used to connect a skyscraper to a car parked in front of it.</p>
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+            </section>
+            <section id="concept-mining">
+                <div class="row">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-9">
+                        <h2><a class="label" href="#concept-mining"></a>Concept Mining</h2>
+                        <p>Now it is easy to understand what concept mining is. Concept mining is the process of completing the puzzle. Start with a piece that is associated with the skyscraper concept. Then, find other skyscraper pieces that fit to reveal the entire skyscraper. Repeat it to construct another skyscraper. Connect the two. And so on.</p>
+                        <p>Real life is always more complicated than theory. Actual data sets are more like a puzzle that is missing a lot of pieces. Adding information from more data sources into the mix may be needed to complete the puzzle. The <a href="../ontology/#modular">composable knowledge</a> offered by EDXML enable us to do just that.</p>
+                        <p>Also, real life data puzzles may involve so many pieces that it gets overwhelming to us humans. This is where concept mining comes in. Now machines can work tirelessly to find the pieces we need and hand them to us.</p>
+                        <p>Man and machine join forces to obtain the big picture.</p>
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+            </section>
+            <section id="how-it-works">
+                <div class="row">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-9">
+                        <h2><a class="label" href="#how-it-works"></a>How it works</h2>
+                        <p>Implementing basic EDXML concept mining is fairly straight forward. It involves an iterative process of jumping to related events and their objects, guided by the information in the <a href="../ontology/">ontology</a>. This process is illustrated in the following graphic.</p>
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+                <div class="row my-5" style="">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-9">
+                        <div class="row">
+                            <img class="mx-auto my-auto" alt="Graphic showing how EDXML event property relations and shared objects can be used to automatically discover related information" src="../assets/event-relations.svg" style="width:90%;">
+                        </div>
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-9">
+                        <p>Imagine taking some object value, say e-mail address <code>alice@acme.com</code>, as a starting point. This starting point is called the <i>concept seed</i>. And imagine searching the data set, finding that the object value appears in a property of some EDXML event. Associating the object value (o) to the property (p) of that event (e) is represented by step 1 in the above graphic.</p>
+                        <p>Suppose that the e-mail address is associated with some concept (c). This might be a <code>person</code> concept for instance. The concept is shared by another property containing names. Both properties are related by means of an intra-concept relation which relates both e-mail addresses and names in the events to the <code>person</code> concept. This is step 2 in the graphic. The related property might have object value "Alice Johnson". That is step 3.</p>
+                        <p>Next, let us assume that the name "Alice Johnson" also appears as an object of a property of another event (step 4). This event is of a different type. In this event type, the property containing the name is related to another property containing an organization name. The two properties are related by means of an intra-concept relation (step 5). The related property also has an object value, "ACME Corporation" for example (step 6).</p>
+                        <p>So, by following related properties and shared object values across two events we have learned that</p>
+                        <ul>
+                            <li>e-mail address alice@acme.com belongs to a person named Alice Johnson</li>
+                            <li>Alice Johnson belongs to an organization named ACME Corporation</li>
+                        </ul>
+                        <p>By iterating these steps, we might learn a lot more about Alice and ACME Corporation, find other persons that also belong to ACME and discover details about those persons. The characters in <a href="../story-telling/">the story</a> that the data tells us, as well as their relationships, are revealed to us in an automated fashion.</p>
+                        <p>A blog post about concept mining algorithms can be found <a href="https://dik-takken.nl/posts/concept-mining/">here</a>.</p>
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+            </section>
+            <div class="row my-5">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-7">
+                    <div class="row text-center font-italic gray small mt-5 mb-2">
+                        <div class="col">other subjects</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 text-center text-md-left">
+                            <a class="small" href="../story-telling/">Story Telling</a>
+                        </div>
+                        <div class="col-md-6 text-center text-md-right">
+                            <a class="small" href="../intro/">Introduction</a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 text-center text-md-left">
+                            <a class="small" href="../ontology/">Ontologies</a>
+                        </div>
+                        <div class="col-md-6 text-center text-md-right">
+                            <a class="small" href="../science/">Scientific Background</a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 text-center text-md-left">
+                            <a class="small" href="../foundation/">EDXML Foundation</a>
+                        </div>
+                        <div class="col-md-6 text-center text-md-right">
+                            <a class="small" href="../sdk/">SDK</a>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6 text-center text-md-left">
+                            <a class="small" href="../spec/">Specification</a>
+                        </div>
+                        <div class="col-md-6 text-center text-md-right">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3"></div>
+            </div>
+            <div class="row my-5 text-center">
+                <div class="col-sm-1"></div>
+                <div class="col-sm-9">
+                    <p class="small">Copyright © <a href="../foundation/">The EDXML Foundation</a></p>
+                </div>
+                <div class="col-sm-2"></div>
+            </div>
+            <div class="row my-5 text-center">
+                <div class="col-sm-1"></div>
+                <div class="col-sm-9">
+                    <div class="row" style="height: 6ex;">
+                        <a class="mx-auto my-auto" href="../"><img src="../assets/home.svg" alt="Go to home page" style="width: 4ex;"/></a>
+                    </div>
+                </div>
+                <div class="col-sm-2"></div>
+            </div>
+        </article>
+        <div class="col-sm-1 d-none d-lg-block d-xl-block"></div>
+    </div>
+</div>
+</body>
+</html>

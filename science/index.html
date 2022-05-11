@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="On the scientific backgrounds of EDXML as a knowledge representation.">
+    <meta name="author" content="Dik Takken">
+
+    <title>Scientific Background | EDXML</title>
+
+    <link rel="icon" type="image/png" href="../assets/favicon.png" sizes="32x32">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/styles/mono-blue.min.css">
+    <link rel="stylesheet" href="../assets/customizations.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js"></script>
+    <script src="../assets/load-fonts.js"></script>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-2 d-none d-lg-block d-xl-block column-left">
+            <div class="row" style="height: 20ex;">
+                <a href="../" class="mx-auto my-5">
+                    <img src="../assets/logo.png" style="height: 12ex;" alt="logo"/>
+                </a>
+            </div>
+            <div class="row">
+                <img src="../assets/symbol-rain.svg" class="mx-auto" style="width: 80%;" alt="decoration"/>
+            </div>
+        </div>
+        <article class="col-lg-10 bg-white column-center" style="max-width: 60em;">
+            <div class="row mt-5 text-center">
+                <div class="col-lg-1"></div>
+                <div class="col-lg-10">
+                    <h1 class="mx-auto my-auto">The Science of EDXML</h1>
+                </div>
+                <div class="col-lg-1"></div>
+            </div>
+            <div class="row my-5" style=""></div>
+            <div class="row">
+                <div class="col-sm-2"></div>
+                <div class="text-center col-sm-8">
+                    <i>Below, we will evaluate EDXML as a knowledge representation (KR) and point out key similarities and differences between it and other knowledge representation techniques.</i>
+                </div>
+                <div class="col-sm-2"></div>
+            </div>
+            <div class="row my-5"></div>
+            <section>
+                <div class="row">
+                    <div class="col-sm-1"></div>
+                    <div class="initial col-sm-9">
+                        <h2><a class="label" href="#origin"></a>Origin</h2>
+                        <p>Knowledge Representation (KR) is a field within Artificial Intelligence that aims to represent knowledge in a machine readable way. This enables machines to use it for reasoning and assist humans in decision-making by supporting their reasoning. Contrary to many Machine Learning techniques, the reasoning process can be fully transparent. This enables humans to interpret and verify its results.</p>
+                        <p>EDXML was not conceived in the context of KR research. It was shaped into its current form by operational challenges in forensics, law enforcement, intelligence and cybersecurity. Hence its focus on simplicity and practical applicability rather than scientific advancement.</p>
+                        <p>For those familiar with the field of KR it may be useful to know how to relate EDXML to other approaches that have been described in literature.</p>
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+            </section>
+            <section id="emergence">
+                <div class="row">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-9">
+                        <h2><a class="label" href="#emergence"></a>Emergence</h2>
+                        <p>Knowledge representations usually take the form of a knowledge base, such as a collection of <a href="https://en.wikipedia.org/wiki/Frame_(artificial_intelligence)">frames</a> or a <a href="https://en.wikipedia.org/wiki/Semantic_network">semantic network</a>. The knowledge base is extracted from data or manually crafted. Knowledge in EDXML is <i>emergent</i>. Rather than representing the knowledge itself, it represents the original data in the form of events while indicating how each event evokes bits of knowledge. These knowledge fragments can be combined to form a true knowledge base. In a way, an EDXML event type can be regarded as a template for the knowledge contained in its events.</p>
+                        <p>EDXML has some resemblance with the <a href="https://en.wikipedia.org/wiki/WordNet">WordNet</a> project. WordNet defines how to translate natural language text into knowledge, where text phrases evoke bits of knowledge. EDXML enables translating 'machine languages' (JSON, database records, ...) into knowledge, where events evoke bits of knowledge. The resemblance also touches on the <a href="../story-telling/">story telling analogy</a> where EDXML events are like the paragraphs in a novel.</p>
+                        <p>Theoretically, when data can evoke knowledge, the inverse is also be possible: Knowledge that evokes data. Given a corpus of knowledge one could synthesize EDXML events which evoke that knowledge. The generated data would have the same structural consistency as real data and, as a result, would look familiar to humans. This data could be used in systems testing or for training human operators by replacing real EDXML data sources with sources that generate data based on a knowledge corpus. In the <a href="../story-telling/">story telling analogy</a> this would be the equivalent of improvising a new story based on a given set of character descriptions. The knowledge corpus is similar to a <i>character sheet</i> which is used by novelists to weave consistent story lines into a novel.</p>
+                        <p class="small"><i>This form of data synthesis is a current subject of active research.</i></p>
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+            </section>
+            <section>
+                <div class="row">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-9">
+                        <h2><a class="label" href="#data-first"></a>Data First</h2>
+                        <p>Most knowledge representations are specifically designed to represent knowledge in the form of a knowledge base. This knowledge base is the subject of study rather than the original data from which the knowledge was acquired. An EDXML document is more like a database than a knowledge base. It attempts to represent the original data as accurately as possible, retaining the context in which the knowledge exists. This property is highly appreciated in forensics, where analysts need to trace back a specific analysis result all the way back to the original evidence.</p>
+                        <p>One could say that EDXML is a <i>data first</i> approach rather than a <i>knowledge first</i> approach. The difference between both approaches translates into making different choices. The most prominent one is perhaps the emergent nature of the knowledge in EDXML. Another choice is to target inference engines, not advanced semantic reasoners. </p>
+                        <p>Semantic reasoners require a carefully redacted knowledge base that is logically consistent. Due to the emergent nature of knowledge in EDXML there is no guarantee that the knowledge is logically consistent, because the original data may be inconsistent, inaccurate, incomplete or even incorrect. As such, reasoning engines may not produce useful results. This issue is typically resolved by making adjustments to the knowledge base. However, given the emergent knowledge in EDXML, that would require changing the original data to make the reasoner happy. Especially in fields like forensics this is not acceptable. Also, it would require a skilled knowledge engineer to prepare the data before it can be used.</p>
+                        <p>Inference engines are simpler and more robust than semantic reasoners. Targeting inference engines over semantic reasoners makes EDXML accessible and allows data to be studied as-is. EDXML aims to assist humans in their associative reasoning rather than replacing human reasoning entirely, combining machine power with human judgement.</p>
+                        <p>The data-first approach makes EDXML a pragmatic knowledge representation, focusing on simplicity and practical applicability.</p>
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+            </section>
+            <section id="distributed-ontologies">
+                <div class="row">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-9">
+                        <h2><a class="label" href="#distributed-ontologies"></a>Modular Ontologies</h2>
+                        <p>EDXML ontologies are <a href="../ontology/#modular">modular</a>. Each EDXML data source produces event type definitions that are specific to that particular source. These event types may be defined in terms of object type definitions and concept definitions that are <a href="../ontology/#bricks">shared</a> between multiple data sources. The shared object types and concepts form a common vocabulary for multiple data sources, which ensures that the data sources produce knowledge that can be correlated.</p>
+                        <p>This method of ontology modularization is similar to the method of <a href="https://en.wikipedia.org/wiki/Ontology_double_articulation">double articulation</a> described by Mustafa Jarrar et al. which introduced the distinction between domain axiomatizations and application axiomatizations.
+                        </p>
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+            </section>
+            <div class="row my-5">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-7">
+                    <div class="row text-center font-italic gray small mt-5 mb-2">
+                        <div class="col">other subjects</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 text-center text-md-left">
+                            <a class="small" href="../story-telling/">Story Telling</a>
+                        </div>
+                        <div class="col-md-6 text-center text-md-right">
+                            <a class="small" href="../concept-mining/">Concept Mining</a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 text-center text-md-left">
+                            <a class="small" href="../ontology/">Ontologies</a>
+                        </div>
+                        <div class="col-md-6 text-center text-md-right">
+                            <a class="small" href="../intro/">Introduction</a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 text-center text-md-left">
+                            <a class="small" href="../foundation/">EDXML Foundation</a>
+                        </div>
+                        <div class="col-md-6 text-center text-md-right">
+                            <a class="small" href="../sdk/">SDK</a>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6 text-center text-md-left">
+                            <a class="small" href="../spec/">Specification</a>
+                        </div>
+                        <div class="col-md-6 text-center text-md-right">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3"></div>
+            </div>
+            <div class="row my-5 text-center">
+                <div class="col-sm-1"></div>
+                <div class="col-sm-9">
+                    <p class="small">Copyright © <a href="../foundation/">The EDXML Foundation</a></p>
+                </div>
+                <div class="col-sm-2"></div>
+            </div>
+            <div class="row my-5 text-center">
+                <div class="col-sm-1"></div>
+                <div class="col-sm-9">
+                    <div class="row" style="height: 6ex;">
+                        <a class="mx-auto my-auto" href="../"><img src="../assets/home.svg" alt="Go to home page" style="width: 4ex;"/></a>
+                    </div>
+                </div>
+                <div class="col-sm-2"></div>
+            </div>
+        </article>
+        <div class="col-sm-1 d-none d-lg-block d-xl-block"></div>
+    </div>
+</div>
+</body>
+</html>

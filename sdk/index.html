@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The EDXML Software Development Kit">
+    <meta name="author" content="Dik Takken">
+
+    <title>SDK | EDXML</title>
+
+    <link rel="icon" type="image/png" href="../assets/favicon.png" sizes="32x32">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/styles/mono-blue.min.css">
+    <link rel="stylesheet" href="../assets/customizations.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js"></script>
+    <script src="../assets/load-fonts.js"></script>
+    <script
+            src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+            integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+            crossorigin="anonymous">
+    </script>
+    <script src="../assets/termynal.js"></script>
+    <script src="../assets/jquery.appear.js"></script>
+    <script src="../assets/load-termynal.js"></script>
+    <link rel="stylesheet" href="../assets/termynal.css">
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-2 d-none d-lg-block d-xl-block column-left">
+            <div class="row" style="height: 20ex;">
+                <a href="../" class="mx-auto my-5">
+                    <img src="../assets/logo.png" style="height: 12ex;" alt="logo"/>
+                </a>
+            </div>
+            <div class="row">
+                <img src="../assets/symbol-rain.svg" class="mx-auto" style="width: 80%;" alt="decoration"/>
+            </div>
+        </div>
+        <article class="col-lg-10 bg-white column-center" style="max-width: 60em;">
+            <div class="row text-center mt-5 ">
+                <div class="col-lg-1"></div>
+                <div class="col-lg-10">
+                    <h1 class="mx-auto my-auto">the<br/>EDXML Software Development Kit</h1>
+                </div>
+                <div class="col-lg-1"></div>
+            </div>
+            <div class="row my-5" style=""></div>
+            <div class="row">
+                <div class="col-sm-2"></div>
+                <div class="text-center col-sm-8">
+                    <i>The EDXML software development kit provides all the necessary components to generate and process EDXML data.</i>
+                </div>
+                <div class="col-sm-2"></div>
+            </div>
+            <div class="row my-2"></div>
+            <div class="row mt-4">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-4">
+                    <div class="row colored-panel green" style="height: 14ex;">
+                        <div class="col mx-auto my-auto text-center" style="width:8em">
+                            <span class="small">Current stable version:</span><br/>
+                            <p><a href="https://pypi.org/project/edxml/"><span class="extra-large">3.0.0</span></a></p>
+                            <p><a href="https://github.com/edxml/sdk"><img src="../assets/github.svg" style="width:3ex" alt="github"></a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4"></div>
+            </div>
+            <div class="row my-4"></div>
+            <section>
+                <div class="row">
+                    <div class="col-sm-2"></div>
+                    <div class="col-sm-8 text-center">
+                        <p><i>It is recommended to read <a href="../intro/">the introduction to EDXML</a> first, in case you have not done so yet.</i></p>
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+            </section>
+            <section id="getting-started">
+                <div class="row">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-9">
+                        <h2><a class="label" href="#getting-started"></a>Getting Started</h2>
+                        <p>The SDK is written in Python and can be installed using pip:</p>
+
+                        <div class="my-4 termynal" data-termynal data-ty-typeDelay="40" data-ty-lineDelay="700" style="font-size: inherit">
+                            <span data-ty="input">pip install edxml</span>
+                            <span data-ty="progress"></span>
+                            <span data-ty>Successfully installed edxml</span>
+                        </div>
+
+                        <p>The documentation of the SDK can be found at <a href="https://edxml-sdk.readthedocs.io/">readthedocs.org</a>. The commandline utilities that are part of the SDK demonstrate various use cases. Experimenting with the source code of these utilities is a nice way to get familiar with the APIs.</p>
+
+                        <p><i>Note that the SDK and the documentation assume basic knowledge the <a href="../spec/">EDXML specification</a>.</i></p>
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+            </section>
+            <section id="transcoders">
+                <div class="row">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-9">
+                        <h2><a class="label" href="#transcoders"></a>Transcoders</h2>
+                        <p>Transcoders are software components that parse data records from some data source and transform them into EDXML events. Transcoders are designed to be shared and combined to correlate the information produced by multiple transcoders.</p>
+                        <p>The SDK contains a generic base implementation that you can extend to create a transcoder for a specific type of input data.Transcoding complex data sources can be simplified by splitting the transcoder in multiple <i>record transcoders</i> while the SDK takes care of routing input records to the correct record transcoder.</p>
+                        <img class="w-100" src="../assets/transcoder.svg" alt="Schema showing how an EDXML transcoder transforms input records into output events">
+                        <p>The above graphic illustrates the process. Data records enter from the left. The transcoder implementation of the SDK routes the records to the record transcoders. The resulting <a href="../ontology">ontology</a> and event data is output at the right.</p>
+                        <p>The SDK contains a test harness to ease writing unit tests for your transcoders.</p>
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+            </section>
+            <section id="streaming">
+                <div class="row">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-9">
+                        <h2><a class="label" href="#streaming"></a>Stream Processing</h2>
+                        <p>The parsers, validators and generators included in the SDK are incremental. This means that processing large volumes of EDXML data can be done efficiently. Also, near real time processing of continuous, live EDXML data streams is readily supported.</p>
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+            </section>
+            <section id="performance">
+                <div class="row">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-9">
+                        <h2><a class="label" href="#performance"></a>Performance</h2>
+                        <p>Built on the excellent <a href="https://lxml.de/">lxml library</a>, the SDK shows decent performance. Generating data can be done at speeds of up to 10,000 events per second, parsing speeds can reach about 19,000 events per second. Both of these figures are measured using a single thread at an Intel(R) Core(TM) i7-4600U CPU.</p>
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+            </section>
+            <section id="utilities">
+                <div class="row">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-9">
+                        <h2><a class="label" href="#utilities"></a>Utilities</h2>
+                        <p>A small collection of commandline utilities is included that aid application development.</p>
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+            </section>
+            <div class="row my-5">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-7">
+                    <div class="row text-center font-italic gray small mt-5 mb-2">
+                        <div class="col">other subjects</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 text-center text-md-left">
+                            <a class="small" href="../story-telling/">Story Telling</a>
+                        </div>
+                        <div class="col-md-6 text-center text-md-right">
+                            <a class="small" href="../concept-mining/">Concept Mining</a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 text-center text-md-left">
+                            <a class="small" href="../ontology/">Ontologies</a>
+                        </div>
+                        <div class="col-md-6 text-center text-md-right">
+                            <a class="small" href="../science/">Scientific Background</a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 text-center text-md-left">
+                            <a class="small" href="../foundation/">EDXML Foundation</a>
+                        </div>
+                        <div class="col-md-6 text-center text-md-right">
+                            <a class="small" href="../intro/">Introduction</a>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6 text-center text-md-left">
+                            <a class="small" href="../spec/">Specification</a>
+                        </div>
+                        <div class="col-md-6 text-center text-md-right">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3"></div>
+            </div>
+            <div class="row my-5 text-center">
+                <div class="col-sm-1"></div>
+                <div class="col-sm-9">
+                    <p class="small">Copyright © <a href="../foundation/">The EDXML Foundation</a></p>
+                </div>
+                <div class="col-sm-2"></div>
+            </div>
+            <div class="row my-5 text-center">
+                <div class="col-sm-1"></div>
+                <div class="col-sm-9">
+                    <div class="row" style="height: 6ex;">
+                        <a class="mx-auto my-auto" href="../"><img src="../assets/home.svg" alt="Go to home page" style="width: 4ex;"/></a>
+                    </div>
+                </div>
+                <div class="col-sm-2"></div>
+            </div>
+        </article>
+        <div class="col-sm-1 d-none d-lg-block d-xl-block"></div>
+    </div>
+</div>
+</body>
+</html>
